@@ -1,10 +1,14 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.util.List" %>
+<%@page import="com.itwill.shop.product.ProductService" %>
+<%@page import="com.itwill.shop.product.Product" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
-
-
-
-
-
-	
+<%
+ProductService productService=new ProductService();
+List<Product> productList=productService.productList();
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -85,35 +89,19 @@
 									cellpadding="3" bordercolordark="white"
 									bordercolorlight="#556b2f">
 									<tr>
-										
+									<%
+										for(Product p:productList){
+									%>		
 										<!--상품시작 -->
 										<td align="center" width="25%"><a
-											href="product_detail.jsp?p_no=1"><img
-												src="image/bigle.gif" border="0"></a><br /> <br /> <b>견종:비글</b><br>
-											<font color="#FF0000">가격:550,000원 </font></td>
+											href="product_detail.jsp?p_no=<%=p.getP_no()%>"><img
+												src="image/<%=p.getP_image()%>" border="0"></a><br /> <br /> <b>상품:<%=p.getP_name() %></b><br>
+											<font color="#FF0000">가격:<%=new DecimalFormat("##,###").format(p.getP_price())%>원 </font></td>
 										<!--상품 끝 -->
-										
-										<!--상품시작 -->
-										<td align="center" width="25%"><a
-											href="product_detail.jsp?p_no=2"><img
-												src="image/dalma.gif" border="0"></a><br /> <br /> <b>견종:달마시안</b><br>
-											<font color="#FF0000">가격:500,000원 </font></td>
-										<!--상품 끝 -->
-										
-										<!--상품시작 -->
-										<td align="center" width="25%"><a
-											href="product_detail.jsp?p_no=3"><img
-												src="image/pug.gif" border="0"></a><br /> <br /> <b>견종:퍼그</b><br>
-											<font color="#FF0000">가격:400,000원 </font></td>
-										<!--상품 끝 -->
-										
-										<!--상품시작 -->
-										<td align="center" width="25%"><a
-											href="product_detail.jsp?p_no=4"><img
-												src="image/pekiniz.gif" border="0"></a><br /> <br /> <b>견종:페키니즈</b><br>
-											<font color="#FF0000">가격:450,000원 </font></td>
-										<!--상품 끝 -->
-												
+									<% 
+										}
+									%>	
+																						
 										</tr>
 								</table>
 							</form> <br /></td>
@@ -126,10 +114,8 @@
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			
 	<p align="center">Copyright (&copy;) By Java Class 5. All
 		rights reserved.</p>
-
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>

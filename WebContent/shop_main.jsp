@@ -18,11 +18,7 @@
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			
-<h1>
-	<a href="">WEB SAMPLE SITE</a>
-</h1>
-
+			<jsp:include page="include_common_bottom.jsp"></jsp:include>			
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
@@ -39,22 +35,9 @@
 		location.href = 'user_login_form.jsp';
 	}
 </script>
-<p>
-	<strong>메 뉴</strong>
-</p>
-<ul>
-	<li><a href="user_write_form.jsp">회원가입</a></li>
-	<li><a href="user_login_form.jsp">로그인</a></li>
-	<li><a href="user_view.jsp">guard1님</a>&nbsp;<a href="user_logout_action.jsp">로그아웃</a></li>
-	<li><a href=""></a></li>
-	<li><a href="shop_main.jsp">쇼핑몰메인</a></li>
-	<li><a href="javascript:login_message();">장바구니</a></li>
-	<li><a href="product_list.jsp">상품리스트</a></li>
-	<li><a href=""></a></li>
-	<li><a href="guest_list.jsp">방명록리스트</a></li>
-	<li><a href="guest_write_form.jsp">방명록쓰기</a></li>
-</ul>
 
+			<!-- include_common_left.jsp -->
+			<jsp:include page="include_common_left.jsp"></jsp:include>
 			<!-- include_common_left.jsp end-->
 		</div>
 		<!-- navigation end-->
@@ -82,10 +65,7 @@
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-			
-	<p align="center">Copyright (&copy;) By Java Class 5. All
-		rights reserved.</p>
-
+			<jsp:include page="include_common_bottom.jsp"></jsp:include>
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>

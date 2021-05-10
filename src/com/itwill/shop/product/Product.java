@@ -7,14 +7,7 @@ public class Product {
 	private String p_image;
 	private String p_desc;
 	private int p_click_count;
-	/**
-	 * @param p_no
-	 * @param p_name
-	 * @param p_price
-	 * @param p_image
-	 * @param p_desc
-	 * @param p_click_count
-	 */
+
 	public Product(int p_no, String p_name, int p_price, String p_image, String p_desc, int p_click_count) {
 		super();
 		this.p_no = p_no;
@@ -23,6 +16,9 @@ public class Product {
 		this.p_image = p_image;
 		this.p_desc = p_desc;
 		this.p_click_count = p_click_count;
+	}
+	public Product() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getP_no() {
 		return p_no;

@@ -1,7 +1,17 @@
+<%@page import="com.itwill.shop.product.Product"%>
+<%@page import="com.itwill.shop.product.ProductService"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
-
-
-
+<%
+	String p_noStr = request.getParameter("p_no");
+	if(p_noStr==null){
+		response.sendRedirect("product_list.jsp");
+		return;
+	}
+	ProductService productService=new ProductService();
+	Product product=productService.productDetail(Integer.parseInt(p_noStr));
+%>    
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -100,9 +110,9 @@
 									<td width=30% align=center class=t1><font size=2
 										color=#0000FF><b>주문량</b></font></td>
 									<td width=40% align=center class=t1><font size=2
-										color=#0000FF><b>멍멍이 이름</b></font></td>
+										color=#0000FF><b>상품이름</b></font></td>
 									<td width=30% align=center class=t1><font size=2
-										color=#0000FF><b>멍멍이 소개</b></font></td>
+										color=#0000FF><b>상품소개</b></font></td>
 								</tr>
 								<tr width=100%>
 									<td colspan=3 height=5><hr color=#556b2f></td>
@@ -111,19 +121,19 @@
 									<td width=30% height=200 align=center class=t1>
 										<form method="post" action="cart_add_action.jsp">
 											수량 : <input type=text name="cart_qty" value=1 size=4
-												class=TXTFLD> 마리 <br /> <br /> <input type=submit
+												class=TXTFLD> 개 <br /> <br /> <input type=submit
 												value=장바구니에담기 class=TXTFLD /> <input type="hidden"
 												name=p_no value="1">
 										</form>
 									</td>
 									<td width=40% height=200 align=center><img border=0
-										src='image/bigle.gif' width=120 height=200></td>
+										src='image/<%=product.getP_image()%>' width=120 height=200></td>
 									<td width=30% height=200 class=t1>
 										<ol type="disc">
-											<li><b>견종 : 비글&nbsp;&nbsp;&nbsp;</b></li>
+											<li><b>상품 : <%=product.getP_name()%>&nbsp;&nbsp;&nbsp;</b></li>
 											<li><font color=#FF0000>가격 :
-													550000&nbsp;&nbsp;&nbsp;</font></li>
-											<li><font color=#0000FF>기타 상세 정보 등...</font></li>
+													<%=product.getP_price()%>&nbsp;&nbsp;&nbsp;</font></li>
+											<li><font color=#0000FF><%=product.getP_desc()%></font></li>
 										</ol>
 									</td>
 								</tr>
