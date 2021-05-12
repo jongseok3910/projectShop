@@ -62,13 +62,13 @@ public class UserDao {
 		return userList;
 				
 	}
-	public int deleteMainUser(User id)throws Exception{
+	public int deleteMainUser(String userId)throws Exception{
 		String driverClass="oracle.jdbc.OracleDriver";
 		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
 		String user="javabackend8";
 		String password="javabackend8";
 		/***************************************/ 
-		String deleteSql="delete from userinfo where userid='"+id+"'";
+		String deleteSql="delete from userinfo where userid='"+userId+"'";
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url, user, password);
 		Statement stmt=con.createStatement();
@@ -113,5 +113,30 @@ public class UserDao {
 		con.close();
 		return updaterowCount;
 }
-
+	public boolean duplicateIdCheck(String userId)throws Exception {
+		String driverClass="oracle.jdbc.OracleDriver";
+		String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
+		String user="javabackend8";
+		String password="javabackend8";
+		/***************************************/ 
+		String selectSql="select count(*) cnt from userinfo where userid='"+userId+"'";
+		boolean isDuplicate=false;
+		
+		Class.forName(driverClass);
+		Connection con=DriverManager.getConnection(url, user, password);
+		Statement stmt=con.createStatement();
+		ResultSet rs = stmt.executeQuery(selectSql);
+		int count=-999;
+		if(rs.next()) {
+			count=rs.getInt("cnt");
+		}
+		if(count==0) {
+			isDuplicate=false;
+		}else {
+			isDuplicate=true;
+		}
+				return isDuplicate;
+	}
+	
 }
+

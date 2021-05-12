@@ -46,6 +46,14 @@ public class User {
 	public String toString() {
 		return "User [userid=" + userid + ", password=" + password + ", name=" + name + ", email=" + email + "]";
 	}
+	public boolean isMathpassword(String password) {
+	if (this.password.equals(password)) {
+	return true;
+	}else {
+		return false;
+	}
+		
+	}
 	
 	
 }

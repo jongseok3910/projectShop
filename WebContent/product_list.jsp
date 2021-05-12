@@ -114,8 +114,7 @@ List<Product> productList=productService.productList();
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-	<p align="center">Copyright (&copy;) By Java Class 5. All
-		rights reserved.</p>
+		<jsp:include page="include_common_bottom.jsp"></jsp:include>
 			<!-- include_common_bottom.jsp end-->
 		</div>
 	</div>

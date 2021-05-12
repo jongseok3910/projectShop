@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -58,44 +60,14 @@
 		<!-- header start -->
 		<div id="header">
 			<!-- include_common_top.jsp start-->
-			
-<h1>
-	<a href="">WEB SAMPLE SITE</a>
-</h1>
-
+			<jsp:include page="include_common_top.jsp"/>		
 			<!-- include_common_top.jsp end-->
 		</div>
 		<!-- header end -->
 		<!-- navigation start-->
 		<div id="navigation">
 			<!-- include_common_left.jsp start-->
-			
-	
-	
-	
-<script type="text/javascript">
-	function login_message() {
-		alert('로그인하세요');
-		location.href = 'user_login_form.jsp';
-	}
-</script>
-<p>
-	<strong>메 뉴</strong>
-</p>
-<ul>
-	
-		<li><a href="user_login_form.jsp">로그인</a></li>
-		<li><a href="user_write_form.jsp">회원가입</a></li>
-		<li><a href=""></a></li>
-		<li><a href="javascript:login_message();">장바구니</a></li>
-	
-		<li><a href="product_list.jsp">상품리스트</a></li>
-		<li><a href=""></a></li>
-		<li><a href="board_list.jsp">게시판리스트</a></li>
-		<li><a href="board_write_form.jsp">게시판쓰기</a></li>
-		
-</ul>
-
+			<jsp:include page="include_common_left.jsp"/>	
 			<!-- include_common_left.jsp end-->
 		</div>
 		<!-- navigation end-->
@@ -177,9 +149,8 @@
 		<!--wrapper end-->
 		<div id="footer">
 			<!-- include_common_bottom.jsp start-->
-	
+			<jsp:include page="include_common_bottom.jsp"/>	
 			<!-- include_common_bottom.jsp end-->
-			
 		</div>
 	</div>
 	<!--container end-->
